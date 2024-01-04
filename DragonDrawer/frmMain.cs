@@ -122,7 +122,7 @@ namespace DragonDrawer
                 else
                 {
                     m_taskMoving = false;
-                    MessageBox.Show("あけましておめでとうございます。一旦停止します。");
+                    MessageBox.Show("あけましておめでとうございます。辰を停止します。");
                 }
 
             }
@@ -154,13 +154,28 @@ namespace DragonDrawer
                 else
                 {
                     m_taskMoving = false;
-                    MessageBox.Show("あけましておめでとうございます。一旦停止します。");
+                    MessageBox.Show("あけましておめでとうございます。辰を停止します。");
                 }
 
             }
             catch (Exception _ex)
             {
                 MessageBox.Show("あけましておめでとうございます。：エラーです。" + _ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 終了前イベント(辰を閉じてから終了させる)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (m_taskMoving == true)
+            {
+                m_taskMoving = false;
+                MessageBox.Show("あけましておめでとうございます。辰を停止させるので、もう一回終了を試行してください。");
+                e.Cancel = true;
             }
         }
 
@@ -365,14 +380,5 @@ namespace DragonDrawer
             m_angles.Add(0);
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(m_taskMoving == true) 
-            {
-                m_taskMoving = false;
-                MessageBox.Show("あけましておめでとうございます。辰を停止させるので、もう一回終了を試行してください。");
-                e.Cancel = true;
-            }
-        }
     }
 }
