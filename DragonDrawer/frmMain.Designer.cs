@@ -35,7 +35,6 @@ namespace DragonDrawer
             this.nudLevel = new System.Windows.Forms.NumericUpDown();
             this.picMain = new System.Windows.Forms.PictureBox();
             this.btnAnimation = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).BeginInit();
             this.SuspendLayout();
@@ -94,22 +93,11 @@ namespace DragonDrawer
             this.btnAnimation.UseVisualStyleBackColor = true;
             this.btnAnimation.Click += new System.EventHandler(this.btnAnimation_Click);
             // 
-            // btnStop
-            // 
-            this.btnStop.Location = new System.Drawing.Point(412, 12);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStop.TabIndex = 5;
-            this.btnStop.Text = "止まります";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnAnimation);
             this.Controls.Add(this.picMain);
             this.Controls.Add(this.nudLevel);
@@ -118,6 +106,7 @@ namespace DragonDrawer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "フラクタルで辰を描きます";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMain)).EndInit();
@@ -133,7 +122,6 @@ namespace DragonDrawer
         private System.Windows.Forms.NumericUpDown nudLevel;
         private System.Windows.Forms.PictureBox picMain;
         private System.Windows.Forms.Button btnAnimation;
-        private System.Windows.Forms.Button btnStop;
     }
 }
 

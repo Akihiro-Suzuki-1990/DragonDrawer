@@ -121,7 +121,8 @@ namespace DragonDrawer
                 }
                 else
                 {
-                    MessageBox.Show("あけましておめでとうございます。辰を止めてください。");
+                    m_taskMoving = false;
+                    MessageBox.Show("あけましておめでとうございます。一旦停止します。");
                 }
 
             }
@@ -152,7 +153,8 @@ namespace DragonDrawer
                 }
                 else
                 {
-                    MessageBox.Show("あけましておめでとうございます。辰を止めてください。");
+                    m_taskMoving = false;
+                    MessageBox.Show("あけましておめでとうございます。一旦停止します。");
                 }
 
             }
@@ -206,7 +208,6 @@ namespace DragonDrawer
                         }
                         ));
                     }
-
                     _startIndex--;
 
                     if (_currentEnd <= 0)
@@ -364,9 +365,14 @@ namespace DragonDrawer
             m_angles.Add(0);
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            m_taskMoving = false;
+            if(m_taskMoving == true) 
+            {
+                m_taskMoving = false;
+                MessageBox.Show("あけましておめでとうございます。辰を停止させるので、もう一回終了を試行してください。");
+                e.Cancel = true;
+            }
         }
     }
 }
